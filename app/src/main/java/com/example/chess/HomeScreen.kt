@@ -17,16 +17,20 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MyApp(chessViewModel: ChessViewModel) {
+fun HomeScreen(navController: NavController, chessViewModel: ChessViewModel) {
     val chessItems = chessViewModel.chessItems.observeAsState(initial = emptyList())
 
     Scaffold(
-        topBar = { TopBar() },
-        bottomBar = { BottomBar() },
+        topBar = { TopBar(navController) },
+        bottomBar = { BottomBar(navController) },
     ) {
+        Button(onClick = { navController.navigate(Screen.Account.route) }) {
+            Text("Go to Account")
+        }
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = Color.DarkGray
