@@ -71,7 +71,7 @@ fun BottomBar(navController: NavController) {
                         Image(
                             painter = painterResource(id = R.drawable.school_40dp_fill0_wght400_grad0_opsz40),
                             contentDescription = null,
-                            modifier = Modifier.size(35.dp)
+                            modifier = Modifier.size(45.dp)
                         )
 
                         Text(
